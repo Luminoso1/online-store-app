@@ -1,0 +1,29 @@
+.DS_Store
+Thumbs.db
+
+node_modules/
+**/node_modules/
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/ .env*
+
+server/dist/
+server/build/
+server/prisma/*.db
+server/prisma/*.db-journal
+server/npm-debug.log*
+server/yarn-error.log*
+
+client/dist/
+client/build/
+client/.data/
+# Producción
+client/out/
+
+.vscode/
+.idea/
+.next/

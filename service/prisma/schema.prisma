@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  username String 
+  email String @unique 
+  address String 
+  phone String 
+  password String 
+  role String 
+  isVerified Boolean @default(false)
+
+  carts Cart[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+  name String
+  price Decimal 
+  quantity Decimal
+  comments String
+  image String
+
+  unit Unit @relation(fields: [unitId], references: [id])
+  unitId Int
+
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  orders Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+  products Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Order {
+  id Int @id @default(autoincrement())
+  quantity Decimal
+  totalOrder Decimal
+
+  cart Cart @relation(fields: [cartId], references: [id])
+  cartId Int
+  
+  product Product @relation(fields: [productId], references: [id])
+  productId Int
+
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Cart {
+  id Int @id @default(autoincrement())
+  date DateTime @default(now())
+  state String @default("PENDING")
+  total Decimal
+  deliveryMethod String @default("DELIVERY")
+  paymentMethod String 
+
+  orders Order[]
+
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+}
+
+
+model EmailVerification {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  token    String   
+  expires  DateTime
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+}
+
+model Unit{
+  id Int @id @default(autoincrement())
+  name String
+
+  products Product[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
