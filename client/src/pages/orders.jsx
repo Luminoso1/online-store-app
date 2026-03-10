@@ -16,7 +16,7 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 import { useLoaderData } from 'react-router-dom'
-import formatPrice from '../utils/format-price'
+import { formatPrice } from '../utils/format'
 import { formatDate } from '../utils/format'
 import { useSearchParams } from 'react-router-dom'
 import { ModalProducts } from '../components/cards/modal-products'

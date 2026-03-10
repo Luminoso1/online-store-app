@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Stack, Text, useToast } from '@chakra-ui/react'
 import useCart from '../../store/cart'
-import formatPrice from '../../utils/format-price'
+import { formatPrice } from '../../utils/format'
 import { ActionsBtns } from '../action-btns'
 import papaya from '../../assets/papaya.webp'
 

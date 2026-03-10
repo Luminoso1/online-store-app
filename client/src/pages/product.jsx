@@ -8,7 +8,7 @@ import {
   Text
 } from '@chakra-ui/react'
 import { ProductBadge } from '../components/product-badge'
-import formatPrice from '../utils/format-price'
+import { formatPrice } from '../utils/format'
 import { CartIcon } from '../components/icons/cart'
 import { useLoaderData } from 'react-router-dom'
 import { ActionsBtns } from '../components/action-btns'

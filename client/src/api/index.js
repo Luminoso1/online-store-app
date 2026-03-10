@@ -6,15 +6,11 @@ export default async function FetchData(endpoint, method, data) {
     
     const body = await res.json()
 
-    console.log('BODY ', body)
-
     if (res.status === 401 || body.message === 'not authorized') {
       localStorage.removeItem('auth')
-      console.log("hello");
     }
 
     if (!res.ok) {
-      console.log(res)
       throw new Error(body.message)
     }
     return body

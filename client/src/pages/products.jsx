@@ -19,7 +19,7 @@ import {
 import { ChevronLeft } from './history'
 import { EditIcon } from '../components/icons/edit'
 import { useLoaderData } from 'react-router-dom'
-import formatPrice from '../utils/format-price'
+import { formatPrice } from '../utils/format'
 import { useSearchParams } from 'react-router-dom'
 import { CreateProductModal } from '../components/cards/creat-product-modal'
 import { useRef } from 'react'

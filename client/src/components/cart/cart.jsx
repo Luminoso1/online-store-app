@@ -18,7 +18,7 @@ import {
 import { Link as RouterLink } from 'react-router-dom'
 import { useRef } from 'react'
 import { CartIcon } from '../icons/cart'
-import formatPrice from '../../utils/format-price'
+import { formatPrice } from '../../utils/format'
 import CartItem from './cart-item'
 
 import useCart from '../../store/cart'

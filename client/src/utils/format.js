@@ -15,3 +15,5 @@ export const formatDate = (date) => {
   const formated = new Intl.DateTimeFormat('es-MX').format(date)
   return formated
 }
+
+
