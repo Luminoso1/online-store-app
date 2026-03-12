@@ -8,16 +8,21 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = [process.env.FRONTEND_URL, "http://localhost:5173"];
+const allowedOrigins = [process.env.FRONTEND_URL];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
+      if (
+        process.env.NODE_ENV === "development" &&
+        (!origin || origin.includes("localhost"))
+      )
+        return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.error(`Bloqueado: ${origin}`);
         callback(new Error("No permitido por CORS"));
       }
     },
