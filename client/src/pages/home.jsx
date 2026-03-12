@@ -41,7 +41,7 @@ const ProductsFallback = () => {
       justifyContent="space-between"
       mt="20"
     >
-      {Array.from({ length: 8 }).map((index) => (
+      {Array.from({ length: 8 }).map((_, index) => (
         <Card key={index} w="full" pb="4">
           <CardHeader>
             <Box height="44" overflow="hidden">

@@ -43,12 +43,12 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: filteredProductsLoader,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
       },
       {
         path: ':productsCategory',
         element: <Home />,
-        loader: filteredProductsLoader
+        loader: filteredProductsLoader,
       },
       {
         path: '/:productsCategory/:productName',
